@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup - Grocery Store</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .signup-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2f8f2f;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Signup</h2>
+    <input type="text" id="newUser" placeholder="Choose a Username" />
+    <input type="password" id="newPass" placeholder="Choose a Password" />
+    <button onclick="signup()">Sign Up</button>
+    <a href="login.html">Already have an account? Login</a>
+  </div>
+
+  <script>
+    function signup() {
+      alert("Account created!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <div class="header-banner">
+  <div class="banner-text">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><img src=c:\Users\suvam\Downloads\grocery-store-sale-banner-template_23-2151089846 (1).avifGrocery Store</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+<header>   <img src="c:\Users\suvam\Downloads\grocery-shop-icon-for-food-store-and-supermarket-vector.jpg" 
+       alt="" 
+       style="height: 120px; margin-right: 50px;" />
+    <h1 style="text-align: left; width: 100%; font-size: 70px; color:  #d1de3b; margin: 10px 0;">
+    Online Grocery Store
+  </h1>
+  <!-- Header with Slide Menu Button -->
+<div class="container">
+  <div class="heads">
+    <div class="menu">
+      <button onclick="toggle()">☰</button>
+    </div>
+    <h2> Store</h2>
+  </div>
+</div>
+
+<!-- Slide Menu -->
+<div id="menu">
+  <div class="menu-inner">
+    <a href="#" class="closeicon" onclick="toggle()">✕</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#aboutus">About Us</a></li>
+      <li><a href="index.html">Shop Now</a></li>
+      <li><a href="#contactus">Contact Us</a></li>
+      <li></li><button onclick="toggleCart()">🛒 Go to Cart</a>
+ (<span id="cartCount">0</span>)</button></a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </div>
+</div>
+   
+
+
+  <input type="text" placeholder="Search for groceries..." id="searchBar" onkeyup="searchProducts()" />
+<select id="categoryFilter" onchange="filterProducts()">
+  <option value="all">All Categories</option>
+  <option value="rice">Rice</option>
+  <option value="oil">Oil</option>
+  <option value="dal">Dal</option>
+  <option value="flour">Flour</option>
+  <option value="tea">Tea</option>
+  <option value="snacks">Snacks</option>
+  <option value="dairy">Dairy</option>
+  <option value="fruits">Fruits</option>
+  <option value="vegetables">Vegetables</option>
+    <option value="softdrinks">Soft Drinks</option>
+    <option value="baby">Baby Products</option>
+        <option value="other">Others</option>
+
+
+</select>
+
+  <button onclick="toggleCart()">Cart</a>
+ (<span id="cartCount">0</span>)</button>
+  <!-- Inside your cart HTML -->
+   
+</header>
+
+<div class="offer-banner">
+  <p>🔥 Big Savings! Get Up to <strong>50% OFF</strong> on Selected Items – Limited Time Only! 🛒</p>
+</div>
+
+<script>
+  function toggle() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("show");
+  }
+</script>
+
+
+  <main id="productList">
+    <option value="rice">Rice</option>
+  <option value="oil">Oil</option>
+  <option value="dal">Dal</option>
+  <option value="flour">Flour</option>
+  <option value="tea">Tea</option>
+  <option value="snacks">Snacks</option>
+  <option value="dairy">Dairy</option>
+  <option value="fruits">Fruits</option>
+  <option value="vegetables">Vegetables</option>
+    <option value="softdrinks">Soft Drinks</option>
+    <!-- Products will be inserted here by JavaScript -->
+  </main>
+<script>
+  function filterProducts() {
+    const selectedCategory = document.getElementById("categoryFilter").value;
+    const productList = document.getElementById("productList");
+    productList.innerHTML = ""; // Clear current products
+
+    const filtered = selectedCategory === "all"
+      ? products
+      : products.filter(p => p.category === selectedCategory);
+
+    filtered.forEach(p => {
+      const item = document.createElement("div");
+      item.classList.add("product-item");
+      item.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" style="height:100px;"><br>
+        <strong>${p.name}</strong><br>
+        ₹${p.price}<br>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      `;
+      productList.appendChild(item);
+    });
+  }
+
+  function searchProducts() {
+    const query = document.getElementById("searchBar").value.toLowerCase();
+    const productList = document.getElementById("productList");
+    productList.innerHTML = "";
+
+    const results = products.filter(p => p.name.toLowerCase().includes(query));
+
+    results.forEach(p => {
+      const item = document.createElement("div");
+      item.classList.add("product-item");
+      item.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" style="height:100px;"><br>
+        <strong>${p.name}</strong><br>
+        ₹${p.price}<br>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      `;
+      productList.appendChild(item);
+    });
+  }
+
+  // Show all items initially
+  window.onload = filterProducts;
+
+  function addToCart(id) {
+    alert("Item with ID " + id + " added to cart."); // Replace this with your real cart logic
+  }
+</script>
+
+  <aside id="cartSidebar"><a href="index.html" class="closeicon">✕</a>
+   <a href =cart.html><h2>Buy Now</a></h2>
+    <ul id="cartItems"></ul>
+    <p>Total: ₹<span id="totalPrice">0</span></p>
+    <button class="buy-now-btn"><h2><a href="checkout.html">Buy Now</h2></button></a></button>
+    <button onclick="clearCart()"><h2>Clear Cart</h2></button>
+   </aside>
+     <aside id="☰"><a href="index.html" class="closeicon">✕</aside>
+  <script src="script.js"id="home"></script>
+
+<footer>
+  <div class="container" id="aboutus">
+    <div class="foots">
+      <div class="col-foot">
+        <h2>About Us</h2>
+        <p> Welcome to Online Grocery Store – your friendly neighborhood grocery destination!
+
+At Online Grocery Store, we believe in providing more than just food – we deliver freshness, quality, and care to every customer who walks through our doors. Whether you're stocking up for the week or picking up a few essentials, we offer a wide selection of fresh fruits and vegetables, quality staples, dairy, snacks, beverages, and household items – all at affordable prices.
+
+We're proud to support local farmers and suppliers, bringing you fresh, locally-sourced produce whenever possible. Clean aisles, helpful staff, and a commitment to customer satisfaction make us more than just a store – we're a part of your community. </p>
+      </div>
+      <div class="col-foot">
+       <h2>Opening Timing</h2>
+       <table>
+            <tr>
+              <td>Mon-Fri...................</td>
+              <td>10:00 AM - 08:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday.................</td>
+              <td>8:00 AM - 02:00 PM</td>
+            </tr>
+<tr>
+              <td>Sunday....................</td>
+              <td>Closed</td>
+            </tr>
+       </table>
+      </div>
+      <div class="col-foot">
+        <h2>Contact Us</h2>
+        <ul class="contactus" id="contactus">
+          <li>Odisha,Ganjam,Bermhapur,Park Street<br>
+            India, 760003</li>
+          <li>onlinegro@gmail.com</li>
+          <li>+91 9692124024</li>
+        </ul>
+         <div>
+       <a href="https://wa.me/9692124024"> 
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjZa6pj92i6Rk3hfrKKih-6qo6W_VzKPjE9w&s"w-35,height="50"><br>
+      </a>
+       <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1"> 
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGvRPgHrP6UtJ9-c7nGt-Y3AurHy_Dog59Q&s"w-35><br>
+      </a>
+         </div> 
+      </div>
+    </div>
+  </div>
+ 
+
+<h2>Rate Your Experience</h2>
+<form id="feedbackForm">
+  <label for="rating">Your Rating:</label><br>
+  <span class="star-rating">
+    <input type="radio" name="rating" value="1">★
+    <input type="radio" name="rating" value="2">★★
+    <input type="radio" name="rating" value="3">★★★
+    <input type="radio" name="rating" value="4">★★★★
+    <input type="radio" name="rating" value="5">★★★★★
+  </span><br><br>
+
+  <label for="comment">Feedback:</label><br>
+  <textarea id="comment" rows="4" cols="40" placeholder="Write your feedback..."></textarea><br><br>
+
+  <button type="submit">Submit Feedback</button>
+</form>
+
+<p id="thankyou" style="color: green; display: none;">Thank you for your feedback!</p>
+</footer>
+
+
+
+
+</body>
+</html>

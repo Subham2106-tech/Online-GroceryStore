@@ -1,0 +1,227 @@
+/* General Body Style */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======= OFFER BANNER WITH GIRL IMAGE ======= */
+.offer-banner {
+  background: linear-gradient(90deg, #ff9800, #ff5722, #f44336);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  animation: slideIn 1s ease-out;
+  gap: 20px;
+}
+
+.offer-banner img {
+  height: 100px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.offer-banner span {
+  color: yellow;
+  font-size: 1.4rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .offer-banner {
+    flex-direction: column;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .offer-banner img {
+    height: 80px;
+  }
+}
+
+/* ======= HEADER ======= */
+header {
+    background-image: url("girl-banner.jpg");
+  color: white;
+  padding: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Top Bar with Girl Image Banner */
+.heads {
+  background: #2f8f2f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content */
+  flex-direction: column;
+  height: 200px;
+  text-align: center;
+  position: relative;
+}
+
+
+
+/* Slide Menu */
+.menu button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  overflow-y: auto;
+  transition: left 0.4s ease;
+  z-index: 1000;
+}
+
+#menu.show {
+  left: 0;
+}
+
+.menu-inner {
+  padding: 20px;
+}
+
+.menu-inner ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-inner ul li {
+  margin: 15px 0;
+}
+
+.menu-inner a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.closeicon {
+  font-size: 24px;
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu-inner a:hover {
+  color: #ffcc00;
+}
+
+/* ======= SEARCH BAR ======= */
+#searchBar {
+  width: 40%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* ======= MAIN PRODUCTS GRID ======= */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.product img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* ======= CART SIDEBAR ======= */
+#cartSidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+#cartSidebar.open {
+  right: 0;
+}
+
+/* ======= FOOTER ======= */
+footer {
+  background: linear-gradient(to right, #2f8f2f, #4caf50);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ======= MEDIA QUERIES ======= */
+@media screen and (max-width: 600px) {
+  header, footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  #cartSidebar {
+    width: 100%;
+  }
+
+  #searchBar {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

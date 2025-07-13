@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout - Grocery Store</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f9f9f9;
+      padding: 30px;
+    }
+    .checkout-box {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px #ccc;
+      border-radius: 10px;
+    }
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+    }
+    button {
+      background: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-box">
+    <h2>Checkout</h2>
+    <input type="text" placeholder="Full Name" />
+    <input type="text" placeholder="Delivery Address" />
+    <input type="text" placeholder="Mobile Number" />
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    function placeOrder() {
+      alert("Order placed successfully! Thank you.");
+      window.location.href = "index.html";
+    }
+    document.querySelector('.buy-now-btn').addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  // Save cart to localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+  window.location.href = "checkout.html";
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+});
+
+  </script>
+</body>
+</html>
